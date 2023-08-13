@@ -111,5 +111,6 @@ func transcodeVideo(fp string, fn string, td string) {
 		logger.Errorf("Error creating thumbnail: %v\nOutput: %s", err, string(output))
 		return
 	}
+	
 	logger.Info("Video transcoded")
 }
