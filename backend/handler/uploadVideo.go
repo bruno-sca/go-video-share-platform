@@ -86,7 +86,7 @@ func createThumbnail(fp string, fn string, td string) {
 		"thumbnail",
 		"-frames:v",
 		"1",
-		filepath.Join(td, fn + ".png"),
+		filepath.Join(td, "thumbnail.png"),
 	)
 
 	if output, err := ffmpegCmd.CombinedOutput(); err != nil {
@@ -104,7 +104,7 @@ func transcodeVideo(fp string, fn string, td string) {
 		fp,
 		"-filter:v",
 		"scale='min(1280,iw)':min'(720,ih)':force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2",
-		filepath.Join(td, fn + ".mp4"),
+		filepath.Join(td, "video.mp4"),
 	)
 
 	if output, err := ffmpegCmd.CombinedOutput(); err != nil {
